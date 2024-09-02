@@ -2,7 +2,7 @@
 name = "fast-zero"
 version = "0.1.0"
 description = ""
-authors = ["marcos gomes <marcos.gomes@modenaesilva.com.br>"]
+authors = [""]
 readme = "README.md"
 
 [tool.poetry.dependencies]
