@@ -13,6 +13,9 @@ pydantic = {extras = ["email"], version = "^2.8.2"}
 sqlalchemy = "^2.0.32"
 pydantic-settings = "^2.4.0"
 alembic = "^1.13.2"
+pyjwt = "^2.9.0"
+pwdlib = {extras = ["argon2"], version = "^0.2.1"}
+python-multipart = "^0.0.9"
 
 
 [tool.poetry.group.dev.dependencies]
