@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from fast_zero.database import get_session
 from fast_zero.models import User
-from fast_zero.schemas import Message, UserDB, UserList, UserPublic, UserSchema
+from fast_zero.schemas import Message, UserList, UserPublic, UserSchema
 
 
 from fastapi.responses import HTMLResponse
@@ -18,27 +18,6 @@ database = []
 @app.get('/', status_code=HTTPStatus.OK, response_model=Message)
 def read_root():
     return {'Hello': 'World'}
-
-
-@app.put('/atualizar_gados')
-def read_update():
-    return {'Hello': 'Fala galera'}
-
-
-@app.get('/buscar_gados')
-def read_search():
-    return {'Hello': 'Buscar gados'}
-
-
-@app.delete('/deletar_gados')
-def read_delete():
-    return {'Hello': 'Apagar gados'}
-
-
-@app.post('/alterar_gados')
-def read_create():
-    return {'Hello': 'Fala galera'}
-
 
 @app.get('/html', response_class=HTMLResponse)
 def read_html():
@@ -110,6 +89,7 @@ def update_user(
     session.refresh(db_user)
 
     return db_user
+
 
 @app.delete('/users/{user_id}', response_model=Message)
 def delete_user(user_id: int, session: Session = Depends(get_session)):
