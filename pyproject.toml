@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "fast-zero"
+version = "0.1.0"
+description = ""
+authors = ["marcos gomes <marcos.gomes@modenaesilva.com.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.*"
+fastapi = {extras = ["standard"], version = "^0.112.2"}
+uvicorn = "^0.30.6"
+pydantic = {extras = ["email"], version = "^2.8.2"}
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.3"
+taskipy = "^1.13.0"
+
+[tool.ruff]
+select = ['E', 'F', 'I']
+target-version = "py311"
+line-length = 100
+ignore = ["E712", "E711", "E501"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+
+[tool.taskipy.tasks]
+lint = 'ruff check . && ruff check . --diff'
+format = 'ruff check . --fix && ruff format .'
+run = 'fastapi dev fast_zero/main.py'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
